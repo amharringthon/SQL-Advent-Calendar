@@ -1,0 +1,9 @@
+-- Day 7: Top Vendors by Revenue
+-- This query retrieves the top 2 vendors by total revenue generated from their items.
+SELECT VENDOR_NAME, SUM(QUANTITY_SOLD*PRICE_PER_UNIT) AS TOTAL_REVENUE
+FROM VENDORS V
+LEFT JOIN SALES S
+ON V.VENDOR_ID = S.VENDOR_ID
+GROUP BY VENDOR_NAME
+ORDER BY TOTAL_REVENUE DESC
+LIMIT 2
